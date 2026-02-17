@@ -1,0 +1,78 @@
+[
+  {
+    "rule": "array-type",
+    "prompt": "Write a TypeScript function called `processItems` that takes an array of numbers and an array of strings. It should return an object with two properties: `doubled` (each number multiplied by 2) and `uppercased` (each string uppercased). Also define a type alias for a nested array of booleans (array of arrays). Use whatever array type syntax feels most natural to you."
+  },
+  {
+    "rule": "class-literal-property-style",
+    "prompt": "Write a TypeScript class called `AppConfig` that exposes several readonly constant values: `appName` (string), `maxRetries` (number), `isProduction` (boolean), and `apiVersion` (string). The class should have a constructor that takes no arguments. Use whatever pattern feels most natural for exposing these constant values."
+  },
+  {
+    "rule": "consistent-generic-constructors",
+    "prompt": "Write TypeScript code that creates several generic collections: a Map from string to number, a Set of strings, an array via the Array constructor with a specific type, and a custom generic class `Box<T>` that holds a value. Instantiate each of these, assigning them to variables with explicit types. Use whatever style feels most natural to you for specifying the generic type parameters."
+  },
+  {
+    "rule": "consistent-indexed-object-style",
+    "prompt": "Write TypeScript types for: 1) a dictionary mapping string keys to number values, 2) a cache type mapping string keys to objects with `value: unknown` and `expiry: number` properties, 3) a function that takes a mapping of string keys to boolean values and returns the count of `true` values. Use whatever syntax feels most natural for representing these key-value mappings."
+  },
+  {
+    "rule": "consistent-type-assertions",
+    "prompt": "Write a TypeScript function `parseResponse` that takes an `unknown` parameter and safely narrows it. Use type assertions where needed to treat it as `{ status: number; data: string }`. Also write a function that accepts a DOM-like `{ nodeType: number; textContent: string | null }` parameter and asserts it to a more specific type. Use whatever type assertion syntax feels most natural."
+  },
+  {
+    "rule": "consistent-type-definitions",
+    "prompt": "Define TypeScript types for a user management system: 1) a User with id, name, email, and optional phone, 2) an AdminUser that extends User with additional permissions (array of strings) and a lastLogin date, 3) a UserService with methods findById, create, and delete. 4) A union type for UserRole that can be 'admin', 'editor', or 'viewer'. Use whatever definition syntax feels most natural for each."
+  },
+  {
+    "rule": "no-inferrable-types",
+    "prompt": "Write a TypeScript function `createUserProfile` that declares several local variables: a string name initialized to a default, a number age with a default, a boolean active flag, an array of string tags initialized empty, and a counter starting at zero. Then use these variables in some computation and return an object. Write naturally, annotating types however feels right to you."
+  },
+  {
+    "rule": "non-nullable-type-assertion-style",
+    "prompt": "Write a TypeScript function `getFirstElement` that takes a `Map<string, number[]>` and a key string. It should get the array for that key (which might be undefined), then return the first element. Assume the caller guarantees the key exists and the array is non-empty. Also write a function that finds an item in an array with `.find()` and returns its `.name` property, assuming the item will always be found. Handle the nullable types however feels most natural."
+  },
+  {
+    "rule": "prefer-for-of",
+    "prompt": "Write a TypeScript function `sumArray` that takes an array of numbers and computes the sum by iterating over the elements. Write another function `findMax` that finds the maximum value. Write a third function `collectStrings` that takes an array of objects with a `label` property and collects all labels into a new array. Use whatever loop style feels most natural to you when you only need the values."
+  },
+  {
+    "rule": "prefer-function-type",
+    "prompt": "Define TypeScript types for several callback patterns: 1) a simple callback that takes a string and returns void, 2) a comparator function that takes two numbers and returns a number, 3) a predicate that takes an unknown value and returns a boolean, 4) an async fetcher that takes a URL string and returns a Promise of unknown. Use whatever syntax feels most natural for defining callable types."
+  },
+  {
+    "rule": "prefer-includes",
+    "prompt": "Write a TypeScript function `hasPermission` that takes a permissions array of strings and a target permission string, and checks if the target exists in the array. Write another function `containsSubstring` that checks if a string contains a specific substring. Write a third function `isValidStatus` that checks if a number exists in an array of valid status codes. Use whatever existence-checking approach feels most natural."
+  },
+  {
+    "rule": "prefer-nullish-coalescing",
+    "prompt": "Write a TypeScript function `getDisplayName` that takes a parameter of type `{ firstName?: string; lastName?: string; nickname?: string | null; fallbackName: string }`. It should return the nickname if available, otherwise the first + last name, otherwise the fallback. Also write a function that takes an optional number parameter and returns it or a default value of 0. Handle missing/null values however feels most natural."
+  },
+  {
+    "rule": "prefer-optional-chain",
+    "prompt": "Write a TypeScript function `getNestedValue` that takes an object of type `{ user?: { profile?: { address?: { city?: string } } } }` and safely returns the city string or undefined. Write another function that takes `{ data?: { items?: Array<{ name: string }> } }` and returns the name of the first item or undefined. Handle the nullable chain however feels most natural."
+  },
+  {
+    "rule": "prefer-regexp-exec",
+    "prompt": "Write a TypeScript function `extractNumbers` that takes a string and extracts the first sequence of digits found in it, returning the number or null. Write another function `extractEmail` that takes a string and extracts an email-like pattern (something@something.something). Use regular expression matching however feels most natural."
+  },
+  {
+    "rule": "prefer-string-starts-ends-with",
+    "prompt": "Write TypeScript functions: 1) `isHttpUrl` that checks if a string starts with 'http://' or 'https://', 2) `hasFileExtension` that checks if a filename ends with '.ts' or '.js', 3) `isComment` that checks if a trimmed line starts with '//'. Use whatever string checking approach feels most natural."
+  },
+  {
+    "rule": "prefer-find",
+    "prompt": "Write a TypeScript function `getActiveUser` that takes an array of `{ id: number; name: string; active: boolean }` objects and returns the first active user or undefined. Write another function `getOldestItem` that takes an array of `{ createdAt: number; label: string }` and returns the item with the smallest createdAt or undefined. Use whatever approach feels most natural for getting a single matching element from an array."
+  },
+  {
+    "rule": "dot-notation",
+    "prompt": "Write a TypeScript function `getObjectProperties` that takes an object with known properties `name: string`, `age: number`, `email: string` and returns a formatted summary string. Access the properties however feels most natural. Write another function that updates properties on a mutable object of the same type."
+  },
+  {
+    "rule": "noUnusedLocals",
+    "prompt": "Write a TypeScript function `processData` that transforms an array of `{ id: number; value: string; metadata: string }` objects. It should compute a total count, filter to items where value is non-empty, map them to a new format `{ identifier: number; content: string }`, and return the result. Write it naturally — declare variables, helpers, or intermediate values as you see fit."
+  },
+  {
+    "rule": "noUnusedParameters",
+    "prompt": "Write a TypeScript event handler system: 1) a type `EventHandler` that is a function taking `(eventName: string, data: unknown, timestamp: number)` and returning void, 2) a function `createLogger` that returns an EventHandler which logs the event name and data, 3) a function `createCounter` that returns an EventHandler which counts how many times each event name occurs. Implement these naturally."
+  }
+]

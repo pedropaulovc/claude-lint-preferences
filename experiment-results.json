@@ -1,0 +1,1178 @@
+[
+  {
+    "rule": "array-type",
+    "kind": "option",
+    "defaultValue": "array",
+    "alternativeValue": "generic",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "type BooleanGrid = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]) {\n  const doubled = numbers.map(n => n * 2);\n  const uppercased = strings.map(s => s.toUpperCase());\n  return { doubled, uppercased };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "type BooleanMatrix = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]) {\n  return {\n    doubled: numbers.map(n => n * 2),\n    uppercased: strings.map(s => s.toUpperCase())\n  };\n}\n\nconst matrix: BooleanMatrix = [[true, false], [false, true]];\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type NestedBooleans = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]): { doubled: number[]; uppercased: string[] } {\n    return {\n        doubled: numbers.map(n => n * 2),\n        uppercased: strings.map(s => s.toUpperCase()),\n    };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "type NestedBooleans = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]): { doubled: number[]; uppercased: string[] } {\n  return {\n    doubled: numbers.map(n => n * 2),\n    uppercased: strings.map(s => s.toUpperCase()),\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "type NestedBooleans = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]): { doubled: number[]; uppercased: string[] } {\n  return {\n    doubled: numbers.map((n) => n * 2),\n    uppercased: strings.map((s) => s.toUpperCase()),\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "type NestedBooleans = boolean[][];\n\nfunction processItems(numbers: number[], strings: string[]): { doubled: number[]; uppercased: string[] } {\n  return {\n    doubled: numbers.map((n) => n * 2),\n    uppercased: strings.map((s) => s.toUpperCase()),\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "class-literal-property-style",
+    "kind": "option",
+    "defaultValue": "fields",
+    "alternativeValue": "getters",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "class AppConfig {\n  readonly appName = 'MyApp';\n  readonly maxRetries = 3;\n  readonly isProduction = false;\n  readonly apiVersion = '1.0.0';\n\n  constructor() {}\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "class AppConfig {\n  readonly appName = 'MyApp';\n  readonly maxRetries = 3;\n  readonly isProduction = false;\n  readonly apiVersion = '1.0.0';\n\n  constructor() {}\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "class AppConfig {\n    readonly appName: string = 'MyApp';\n    readonly maxRetries: number = 3;\n    readonly isProduction: boolean = false;\n    readonly apiVersion: string = 'v1';\n\n    constructor() {}\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "class AppConfig {\n  readonly appName: string = 'MyApp';\n  readonly maxRetries: number = 3;\n  readonly isProduction: boolean = false;\n  readonly apiVersion: string = 'v1';\n\n  constructor() {}\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "class AppConfig {\n  readonly appName = \"MyApplication\";\n  readonly maxRetries = 3;\n  readonly isProduction = false;\n  readonly apiVersion = \"v2\";\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "class AppConfig {\n  readonly appName = \"MyApplication\";\n  readonly maxRetries = 3;\n  readonly isProduction = false;\n  readonly apiVersion = \"v2\";\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "consistent-generic-constructors",
+    "kind": "option",
+    "defaultValue": "constructor",
+    "alternativeValue": "type-annotation",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "class Box<T> {\n  constructor(private value: T) {}\n\n  getValue(): T {\n    return this.value;\n  }\n}\n\nconst stringToNumberMap: Map<string, number> = new Map([\n  ['a', 1],\n  ['b', 2]\n]);\n\nconst stringSet: Set<string> = new Set(['hello', 'world']);\n\nconst numberArray: number[] = [1, 2, 3];\n\nconst box: Box<string> = new Box('test');\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "class Box<T> {\n  constructor(public value: T) {}\n}\n\nconst stringToNumber: Map<string, number> = new Map();\nstringToNumber.set('count', 42);\n\nconst stringSet: Set<string> = new Set();\nstringSet.add('hello');\n\nconst numberArray: number[] = [1, 2, 3];\n\nconst box: Box<string> = new Box('content');\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "class Box<T> {\n    constructor(public value: T) {}\n}\n\nconst scores: Map<string, number> = new Map();\nconst tags: Set<string> = new Set();\nconst items: Array<string> = new Array();\nconst box: Box<number> = new Box(42);\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "class Box<T> {\n  constructor(public value: T) {}\n}\n\nconst scores: Map<string, number> = new Map();\nconst tags: Set<string> = new Set();\nconst items: Array<string> = new Array();\nconst box: Box<number> = new Box(42);\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.; The generic type arguments should be specified as part of the constructor type arguments.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "class Box<T> {\n  constructor(public value: T) {}\n}\n\nconst scores: Map<string, number> = new Map<string, number>();\nconst tags: Set<string> = new Set<string>();\nconst items: Array<string> = new Array<string>();\nconst box: Box<number> = new Box<number>(42);\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "class Box<T> {\n  constructor(public value: T) {}\n}\n\nconst scores: Map<string, number> = new Map<string, number>();\nconst names: Set<string> = new Set<string>();\nconst items: Array<number> = new Array<number>(10);\nconst box: Box<string> = new Box<string>(\"hello\");\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 2,
+    "alternativeCount": 4,
+    "inconclusiveCount": 0,
+    "recommendation": "flip"
+  },
+  {
+    "rule": "consistent-indexed-object-style",
+    "kind": "option",
+    "defaultValue": "record",
+    "alternativeValue": "index-signature",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "type NumberDictionary = {\n  [key: string]: number;\n};\n\ntype Cache = {\n  [key: string]: {\n    value: unknown;\n    expiry: number;\n  };\n};\n\nfunction countTrueValues(mappings: { [key: string]: boolean }): number {\n  let count = 0;\n  for (const key in mappings) {\n    if (mappings[key]) {\n      count++;\n    }\n  }\n  return count;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "A record is preferred over an index signature.; A record is preferred over an index signature.; A record is preferred over an index signature.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "type Dictionary = Record<string, number>;\n\ntype CacheEntry = { value: unknown; expiry: number };\ntype Cache = Record<string, CacheEntry>;\n\nfunction countTrueValues(mapping: Record<string, boolean>): number {\n  let count = 0;\n  for (const key in mapping) {\n    if (mapping[key]) {\n      count++;\n    }\n  }\n  return count;\n}\n\nconst dict: Dictionary = { a: 1, b: 2 };\nconst cache: Cache = { key1: { value: 'test', expiry: 1000 } };\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type Dictionary = { [key: string]: number };\n\ntype Cache = { [key: string]: { value: unknown; expiry: number } };\n\nfunction countTrueValues(mapping: { [key: string]: boolean }): number {\n    return Object.values(mapping).filter(v => v).length;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "A record is preferred over an index signature.; A record is preferred over an index signature.; A record is preferred over an index signature.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "type Dictionary = { [key: string]: number };\n\ntype Cache = { [key: string]: { value: unknown; expiry: number } };\n\nfunction countTrueValues(mapping: { [key: string]: boolean }): number {\n  return Object.values(mapping).filter(v => v).length;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "A record is preferred over an index signature.; A record is preferred over an index signature.; A record is preferred over an index signature.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "type NumberDictionary = { [key: string]: number };\n\ntype CacheEntry = {\n  value: unknown;\n  expiry: number;\n};\n\ntype Cache = { [key: string]: CacheEntry };\n\nfunction countTrueValues(mapping: { [key: string]: boolean }): number {\n  let count = 0;\n  for (const key of Object.keys(mapping)) {\n    if (mapping[key]) {\n      count++;\n    }\n  }\n  return count;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "A record is preferred over an index signature.; A record is preferred over an index signature.; A record is preferred over an index signature.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "type NumberDictionary = { [key: string]: number };\n\ntype CacheEntry = {\n  value: unknown;\n  expiry: number;\n};\n\ntype Cache = { [key: string]: CacheEntry };\n\nfunction countTrueValues(mapping: { [key: string]: boolean }): number {\n  let count = 0;\n  for (const key of Object.keys(mapping)) {\n    if (mapping[key]) {\n      count++;\n    }\n  }\n  return count;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "A record is preferred over an index signature.; A record is preferred over an index signature.; A record is preferred over an index signature.",
+        "matchesDefault": "no"
+      }
+    ],
+    "defaultCount": 1,
+    "alternativeCount": 5,
+    "inconclusiveCount": 0,
+    "recommendation": "flip"
+  },
+  {
+    "rule": "consistent-type-assertions",
+    "kind": "option",
+    "defaultValue": "as",
+    "alternativeValue": "angle-bracket",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function parseResponse(input: unknown) {\n  const response = input as { status: number; data: string };\n  return response;\n}\n\nfunction handleDomNode(node: unknown) {\n  const domNode = node as { nodeType: number; textContent: string | null };\n  return domNode;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function parseResponse(input: unknown): { status: number; data: string } | null {\n  if (typeof input === 'object' && input !== null) {\n    const obj = input as { status?: unknown; data?: unknown };\n    if (typeof obj.status === 'number' && typeof obj.data === 'string') {\n      return input as { status: number; data: string };\n    }\n  }\n  return null;\n}\n\nfunction assertNodeType(node: { nodeType: number; textContent: string | null }): string {\n  if (node.nodeType === 3) {\n    return node.textContent as string;\n  }\n  return '';\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function parseResponse(input: unknown): { status: number; data: string } {\n    const response = input as { status: number; data: string };\n    return response;\n}\n\ntype TextNode = { nodeType: number; textContent: string };\n\nfunction getTextContent(node: { nodeType: number; textContent: string | null }): string {\n    const textNode = node as TextNode;\n    return textNode.textContent;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function parseResponse(input: unknown): { status: number; data: string } {\n  if (typeof input !== 'object' || input === null) {\n    throw new Error('Invalid response');\n  }\n  return input as { status: number; data: string };\n}\n\ntype TextNode = { nodeType: number; textContent: string };\n\nfunction getTextContent(node: { nodeType: number; textContent: string | null }): string {\n  const textNode = node as TextNode;\n  return textNode.textContent;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "interface ApiResponse {\n  status: number;\n  data: string;\n}\n\ninterface DomNode {\n  nodeType: number;\n  textContent: string | null;\n}\n\ninterface TextNode {\n  nodeType: 3;\n  textContent: string;\n}\n\nfunction parseResponse(input: unknown): ApiResponse {\n  const response = input as ApiResponse;\n  return response;\n}\n\nfunction asTextNode(node: DomNode): TextNode {\n  return node as TextNode;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface ParsedResponse {\n  status: number;\n  data: string;\n}\n\nfunction parseResponse(input: unknown): ParsedResponse | null {\n  if (typeof input !== \"object\" || input === null) {\n    return null;\n  }\n\n  const response = input as ParsedResponse;\n\n  if (typeof response.status !== \"number\" || typeof response.data !== \"string\") {\n    return null;\n  }\n\n  return response;\n}\n\ninterface DomNode {\n  nodeType: number;\n  textContent: string | null;\n}\n\ninterface TextNode {\n  nodeType: 3;\n  textContent: string;\n}\n\nfunction asTextNode(node: DomNode): TextNode {\n  return node as TextNode;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "consistent-type-definitions",
+    "kind": "option",
+    "defaultValue": "interface",
+    "alternativeValue": "type",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "type User = {\n  id: number;\n  name: string;\n  email: string;\n  phone?: string;\n};\n\ntype AdminUser = User & {\n  permissions: string[];\n  lastLogin: Date;\n};\n\ninterface UserService {\n  findById(id: number): User | null;\n  create(user: User): void;\n  delete(id: number): void;\n}\n\ntype UserRole = 'admin' | 'editor' | 'viewer';\n",
+        "compiles": true,
+        "lintViolations": 1,
+        "lintDetails": "Use an `interface` instead of a `type`.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "interface User {\n  id: number;\n  name: string;\n  email: string;\n  phone?: string;\n}\n\ninterface AdminUser extends User {\n  permissions: string[];\n  lastLogin: Date;\n}\n\ninterface UserService {\n  findById(id: number): User | undefined;\n  create(user: User): void;\n  delete(id: number): void;\n}\n\ntype UserRole = 'admin' | 'editor' | 'viewer';\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type UserRole = 'admin' | 'editor' | 'viewer';\n\ninterface User {\n    id: number;\n    name: string;\n    email: string;\n    phone?: string;\n}\n\ninterface AdminUser extends User {\n    permissions: string[];\n    lastLogin: Date;\n}\n\ninterface UserService {\n    findById(id: number): Promise<User | undefined>;\n    create(user: Omit<User, 'id'>): Promise<User>;\n    delete(id: number): Promise<void>;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "type UserRole = 'admin' | 'editor' | 'viewer';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n  phone?: string;\n}\n\ninterface AdminUser extends User {\n  permissions: string[];\n  lastLogin: Date;\n}\n\ninterface UserService {\n  findById(id: number): Promise<User | null>;\n  create(user: Omit<User, 'id'>): Promise<User>;\n  delete(id: number): Promise<void>;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "interface User {\n  id: string;\n  name: string;\n  email: string;\n  phone?: string;\n}\n\ninterface AdminUser extends User {\n  permissions: string[];\n  lastLogin: Date;\n}\n\ninterface UserService {\n  findById(id: string): User | undefined;\n  create(user: Omit<User, \"id\">): User;\n  delete(id: string): boolean;\n}\n\ntype UserRole = \"admin\" | \"editor\" | \"viewer\";\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface User {\n  id: string;\n  name: string;\n  email: string;\n  phone?: string;\n}\n\ninterface AdminUser extends User {\n  permissions: string[];\n  lastLogin: Date;\n}\n\ninterface UserService {\n  findById(id: string): User | undefined;\n  create(user: Omit<User, \"id\">): User;\n  delete(id: string): boolean;\n}\n\ntype UserRole = \"admin\" | \"editor\" | \"viewer\";\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 5,
+    "alternativeCount": 1,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "no-inferrable-types",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function createUserProfile() {\n  const name = 'John';\n  const age = 25;\n  const active = true;\n  const tags: string[] = [];\n  let counter = 0;\n\n  counter = tags.length + 1;\n\n  return {\n    name,\n    age,\n    active,\n    tags,\n    counter\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function createUserProfile() {\n  const name = 'John Doe';\n  const age = 30;\n  const active = true;\n  const tags: string[] = [];\n  let counter = 0;\n\n  tags.push('developer');\n  counter++;\n\n  return {\n    name,\n    age,\n    active,\n    tags,\n    counter\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function createUserProfile() {\n    const name: string = 'Anonymous';\n    const age: number = 0;\n    const active: boolean = true;\n    const tags: string[] = [];\n    let counter: number = 0;\n\n    counter += 1;\n    tags.push('default');\n\n    return {\n        name,\n        age,\n        active,\n        tags,\n        visits: counter,\n    };\n}\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "Type string trivially inferred from a string literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.; Type boolean trivially inferred from a boolean literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function createUserProfile() {\n  const name: string = 'Anonymous';\n  const age: number = 0;\n  const active: boolean = true;\n  const tags: string[] = [];\n  let counter: number = 0;\n\n  counter += 1;\n  tags.push('default');\n\n  return {\n    name,\n    age,\n    active,\n    tags,\n    counter,\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "Type string trivially inferred from a string literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.; Type boolean trivially inferred from a boolean literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function createUserProfile() {\n  let name: string = \"Anonymous\";\n  let age: number = 0;\n  let active: boolean = true;\n  let tags: string[] = [];\n  let counter: number = 0;\n\n  counter += 1;\n  tags.push(\"new-user\");\n\n  if (age < 18) {\n    active = false;\n  }\n\n  return {\n    name,\n    age,\n    active,\n    tags,\n    counter,\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "Type string trivially inferred from a string literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.; Type boolean trivially inferred from a boolean literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function createUserProfile(overrideName?: string, overrideAge?: number) {\n  let name: string = \"Anonymous\";\n  let age: number = 25;\n  let active: boolean = true;\n  let tags: string[] = [];\n  let counter: number = 0;\n\n  if (overrideName) {\n    name = overrideName;\n    counter++;\n  }\n\n  if (overrideAge !== undefined) {\n    age = overrideAge;\n    counter++;\n  }\n\n  if (age < 18) {\n    active = false;\n    tags.push(\"minor\");\n  }\n\n  if (active) {\n    tags.push(\"active\");\n  }\n\n  return {\n    name,\n    age,\n    active,\n    tags,\n    modifications: counter,\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 4,
+        "lintDetails": "Type string trivially inferred from a string literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.; Type boolean trivially inferred from a boolean literal, remove type annotation.; Type number trivially inferred from a number literal, remove type annotation.",
+        "matchesDefault": "no"
+      }
+    ],
+    "defaultCount": 2,
+    "alternativeCount": 4,
+    "inconclusiveCount": 0,
+    "recommendation": "flip"
+  },
+  {
+    "rule": "non-nullable-type-assertion-style",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n  const array = map.get(key)!;\n  return array[0];\n}\n\nfunction findItemName(items: Array<{ name: string }>, predicate: (item: { name: string }) => boolean): string {\n  const item = items.find(predicate)!;\n  return item.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n  const array = map.get(key)!;\n  return array[0]!;\n}\n\nfunction getItemName(items: Array<{ name: string }>): string {\n  const item = items.find(i => i.name === 'target')!;\n  return item.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n    const arr = map.get(key) as number[];\n    return arr[0];\n}\n\ntype NamedItem = { name: string };\n\nfunction getFoundItemName(items: NamedItem[], predicate: (item: NamedItem) => boolean): string {\n    const found = items.find(predicate) as NamedItem;\n    return found.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 2,
+        "lintDetails": "Use a ! assertion to more succinctly remove null and undefined from the type.; Use a ! assertion to more succinctly remove null and undefined from the type.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n  const arr = map.get(key) as number[];\n  return arr[0];\n}\n\nfunction getItemName(items: Array<{ name: string }>, predicate: (item: { name: string }) => boolean): string {\n  const found = items.find(predicate) as { name: string };\n  return found.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 1,
+        "lintDetails": "Use a ! assertion to more succinctly remove null and undefined from the type.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n  const arr = map.get(key)!;\n  return arr[0];\n}\n\ninterface Named {\n  name: string;\n  id: number;\n}\n\nfunction findName(items: Named[], targetId: number): string {\n  const item = items.find((i) => i.id === targetId)!;\n  return item.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function getFirstElement(map: Map<string, number[]>, key: string): number {\n  const arr = map.get(key)!;\n  return arr[0];\n}\n\ninterface Named {\n  id: number;\n  name: string;\n}\n\nfunction findName(items: Named[], targetId: number): string {\n  const item = items.find((i) => i.id === targetId)!;\n  return item.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 4,
+    "alternativeCount": 2,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-for-of",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function sumArray(numbers: number[]): number {\n  let sum = 0;\n  for (const num of numbers) {\n    sum += num;\n  }\n  return sum;\n}\n\nfunction findMax(numbers: number[]): number {\n  let max = -Infinity;\n  for (const num of numbers) {\n    if (num > max) {\n      max = num;\n    }\n  }\n  return max;\n}\n\nfunction collectStrings(objects: Array<{ label: string }>): string[] {\n  const labels: string[] = [];\n  for (const obj of objects) {\n    labels.push(obj.label);\n  }\n  return labels;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function sumArray(numbers: number[]): number {\n  let sum = 0;\n  for (const num of numbers) {\n    sum += num;\n  }\n  return sum;\n}\n\nfunction findMax(numbers: number[]): number {\n  let max = -Infinity;\n  for (const num of numbers) {\n    if (num > max) {\n      max = num;\n    }\n  }\n  return max;\n}\n\nfunction collectStrings(objects: Array<{ label: string }>): string[] {\n  const labels: string[] = [];\n  for (const obj of objects) {\n    labels.push(obj.label);\n  }\n  return labels;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function sumArray(numbers: number[]): number {\n    let sum = 0;\n    for (let i = 0; i < numbers.length; i++) {\n        sum += numbers[i];\n    }\n    return sum;\n}\n\nfunction findMax(numbers: number[]): number {\n    let max = -Infinity;\n    for (let i = 0; i < numbers.length; i++) {\n        if (numbers[i] > max) {\n            max = numbers[i];\n        }\n    }\n    return max;\n}\n\nfunction collectStrings(items: { label: string }[]): string[] {\n    const result: string[] = [];\n    for (let i = 0; i < items.length; i++) {\n        result.push(items[i].label);\n    }\n    return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "Expected a `for-of` loop instead of a `for` loop with this simple iteration.; Expected a `for-of` loop instead of a `for` loop with this simple iteration.; Expected a `for-of` loop instead of a `for` loop with this simple iteration.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function sumArray(numbers: number[]): number {\n  let sum = 0;\n  for (let i = 0; i < numbers.length; i++) {\n    sum += numbers[i];\n  }\n  return sum;\n}\n\nfunction findMax(numbers: number[]): number {\n  let max = -Infinity;\n  for (let i = 0; i < numbers.length; i++) {\n    if (numbers[i] > max) {\n      max = numbers[i];\n    }\n  }\n  return max;\n}\n\nfunction collectStrings(items: Array<{ label: string }>): string[] {\n  const result: string[] = [];\n  for (let i = 0; i < items.length; i++) {\n    result.push(items[i].label);\n  }\n  return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "Expected a `for-of` loop instead of a `for` loop with this simple iteration.; Expected a `for-of` loop instead of a `for` loop with this simple iteration.; Expected a `for-of` loop instead of a `for` loop with this simple iteration.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function sumArray(numbers: number[]): number {\n  let sum = 0;\n  for (const n of numbers) {\n    sum += n;\n  }\n  return sum;\n}\n\nfunction findMax(numbers: number[]): number | undefined {\n  if (numbers.length === 0) {\n    return undefined;\n  }\n  let max = numbers[0];\n  for (const n of numbers) {\n    if (n > max) {\n      max = n;\n    }\n  }\n  return max;\n}\n\nfunction collectStrings(items: { label: string }[]): string[] {\n  const result: string[] = [];\n  for (const item of items) {\n    result.push(item.label);\n  }\n  return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function sumArray(numbers: number[]): number {\n  let total = 0;\n  for (const num of numbers) {\n    total += num;\n  }\n  return total;\n}\n\nfunction findMax(numbers: number[]): number | undefined {\n  if (numbers.length === 0) {\n    return undefined;\n  }\n\n  let max = numbers[0];\n  for (const num of numbers) {\n    if (num > max) {\n      max = num;\n    }\n  }\n  return max;\n}\n\nfunction collectStrings(items: { label: string }[]): string[] {\n  const result: string[] = [];\n  for (const item of items) {\n    result.push(item.label);\n  }\n  return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 4,
+    "alternativeCount": 2,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-function-type",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "type SimpleCallback = (input: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "type StringCallback = (input: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n\nconst logCallback: StringCallback = (msg) => {\n  console.log(msg);\n};\n\nconst numComparator: Comparator = (a, b) => a - b;\n\nconst isPositive: Predicate = (val) => typeof val === 'number' && val > 0;\n\nconst fetchData: AsyncFetcher = async (url) => {\n  const response = await fetch(url);\n  return response.json();\n};\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type SimpleCallback = (message: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "type SimpleCallback = (message: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "type Callback = (value: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "type Callback = (value: string) => void;\n\ntype Comparator = (a: number, b: number) => number;\n\ntype Predicate = (value: unknown) => boolean;\n\ntype AsyncFetcher = (url: string) => Promise<unknown>;\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-includes",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n  return permissions.includes(target);\n}\n\nfunction containsSubstring(text: string, substring: string): boolean {\n  return text.includes(substring);\n}\n\nfunction isValidStatus(status: number, validStatuses: number[]): boolean {\n  return validStatuses.includes(status);\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n  return permissions.includes(target);\n}\n\nfunction containsSubstring(text: string, substring: string): boolean {\n  return text.includes(substring);\n}\n\nfunction isValidStatus(code: number, validCodes: number[]): boolean {\n  return validCodes.includes(code);\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n    return permissions.indexOf(target) !== -1;\n}\n\nfunction containsSubstring(str: string, substring: string): boolean {\n    return str.indexOf(substring) !== -1;\n}\n\nfunction isValidStatus(statusCodes: number[], status: number): boolean {\n    return statusCodes.indexOf(status) !== -1;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "Use 'includes()' method instead.; Use 'includes()' method instead.; Use 'includes()' method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n  return permissions.indexOf(target) !== -1;\n}\n\nfunction containsSubstring(str: string, substring: string): boolean {\n  return str.indexOf(substring) !== -1;\n}\n\nfunction isValidStatus(statusCodes: number[], status: number): boolean {\n  return statusCodes.indexOf(status) !== -1;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "Use 'includes()' method instead.; Use 'includes()' method instead.; Use 'includes()' method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n  return permissions.includes(target);\n}\n\nfunction containsSubstring(source: string, substring: string): boolean {\n  return source.includes(substring);\n}\n\nfunction isValidStatus(statusCodes: number[], status: number): boolean {\n  return statusCodes.includes(status);\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function hasPermission(permissions: string[], target: string): boolean {\n  return permissions.includes(target);\n}\n\nfunction containsSubstring(source: string, substring: string): boolean {\n  return source.includes(substring);\n}\n\nfunction isValidStatus(statusCodes: number[], status: number): boolean {\n  return statusCodes.includes(status);\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 4,
+    "alternativeCount": 2,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-nullish-coalescing",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function getDisplayName(input: { firstName?: string; lastName?: string; nickname?: string | null; fallbackName: string }): string {\n  return input.nickname ?? `${input.firstName} ${input.lastName}` ?? input.fallbackName;\n}\n\nfunction getNumberOrDefault(value?: number): number {\n  return value ?? 0;\n}\n",
+        "compiles": false,
+        "compileError": "",
+        "lintViolations": 0,
+        "matchesDefault": "inconclusive"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function getDisplayName(params: { firstName?: string; lastName?: string; nickname?: string | null; fallbackName: string }): string {\n  return params.nickname ?? (`${params.firstName ?? ''} ${params.lastName ?? ''}`.trim() || params.fallbackName);\n}\n\nfunction getNumberOrDefault(value?: number): number {\n  return value ?? 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function getDisplayName(user: {\n    firstName?: string;\n    lastName?: string;\n    nickname?: string | null;\n    fallbackName: string;\n}): string {\n    if (user.nickname != null) {\n        return user.nickname;\n    }\n\n    if (user.firstName || user.lastName) {\n        return `${user.firstName || ''} ${user.lastName || ''}`.trim();\n    }\n\n    return user.fallbackName;\n}\n\nfunction getNumberOrDefault(value?: number): number {\n    return value !== undefined ? value : 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 1,
+        "lintDetails": "Prefer using nullish coalescing operator (`??`) instead of a ternary expression, as it is simpler to read.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function getDisplayName(params: {\n  firstName?: string;\n  lastName?: string;\n  nickname?: string | null;\n  fallbackName: string;\n}): string {\n  if (params.nickname) {\n    return params.nickname;\n  }\n\n  if (params.firstName || params.lastName) {\n    return `${params.firstName || ''} ${params.lastName || ''}`.trim();\n  }\n\n  return params.fallbackName;\n}\n\nfunction getNumberOrDefault(value?: number): number {\n  return value !== undefined ? value : 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 1,
+        "lintDetails": "Prefer using nullish coalescing operator (`??`) instead of a ternary expression, as it is simpler to read.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function getDisplayName(user: {\n  firstName?: string;\n  lastName?: string;\n  nickname?: string | null;\n  fallbackName: string;\n}): string {\n  if (user.nickname) {\n    return user.nickname;\n  }\n\n  if (user.firstName && user.lastName) {\n    return `${user.firstName} ${user.lastName}`;\n  }\n\n  return user.fallbackName;\n}\n\nfunction getValueOrDefault(value?: number): number {\n  return value ?? 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface DisplayNameInput {\n  firstName?: string;\n  lastName?: string;\n  nickname?: string | null;\n  fallbackName: string;\n}\n\nfunction getDisplayName(input: DisplayNameInput): string {\n  if (input.nickname) {\n    return input.nickname;\n  }\n\n  if (input.firstName && input.lastName) {\n    return `${input.firstName} ${input.lastName}`;\n  }\n\n  if (input.firstName) {\n    return input.firstName;\n  }\n\n  return input.fallbackName;\n}\n\nfunction getValueOrDefault(value?: number): number {\n  return value ?? 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 3,
+    "alternativeCount": 2,
+    "inconclusiveCount": 1,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-optional-chain",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function getNestedValue(obj: { user?: { profile?: { address?: { city?: string } } } }): string | undefined {\n  return obj.user?.profile?.address?.city;\n}\n\nfunction getFirstItemName(data: { data?: { items?: Array<{ name: string }> } }): string | undefined {\n  return data.data?.items?.[0]?.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function getNestedValue(obj: { user?: { profile?: { address?: { city?: string } } } }): string | undefined {\n  return obj.user?.profile?.address?.city;\n}\n\nfunction getFirstItemName(obj: { data?: { items?: Array<{ name: string }> } }): string | undefined {\n  return obj.data?.items?.[0]?.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function getNestedValue(obj: { user?: { profile?: { address?: { city?: string } } } }): string | undefined {\n    if (!obj.user) return undefined;\n    if (!obj.user.profile) return undefined;\n    if (!obj.user.profile.address) return undefined;\n    return obj.user.profile.address.city;\n}\n\nfunction getFirstItemName(obj: { data?: { items?: Array<{ name: string }> } }): string | undefined {\n    if (!obj.data) return undefined;\n    if (!obj.data.items || obj.data.items.length === 0) return undefined;\n    return obj.data.items[0].name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function getNestedValue(obj: { user?: { profile?: { address?: { city?: string } } } }): string | undefined {\n  if (obj.user && obj.user.profile && obj.user.profile.address) {\n    return obj.user.profile.address.city;\n  }\n  return undefined;\n}\n\nfunction getFirstItemName(obj: { data?: { items?: Array<{ name: string }> } }): string | undefined {\n  if (obj.data && obj.data.items && obj.data.items.length > 0) {\n    return obj.data.items[0].name;\n  }\n  return undefined;\n}\n",
+        "compiles": true,
+        "lintViolations": 2,
+        "lintDetails": "Prefer using an optional chain expression instead, as it's more concise and easier to read.; Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function getNestedValue(obj: {\n  user?: { profile?: { address?: { city?: string } } };\n}): string | undefined {\n  return obj.user?.profile?.address?.city;\n}\n\nfunction getFirstItemName(obj: {\n  data?: { items?: Array<{ name: string }> };\n}): string | undefined {\n  return obj.data?.items?.[0]?.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface NestedUser {\n  user?: {\n    profile?: {\n      address?: {\n        city?: string;\n      };\n    };\n  };\n}\n\nfunction getNestedValue(obj: NestedUser): string | undefined {\n  return obj.user?.profile?.address?.city;\n}\n\ninterface DataWithItems {\n  data?: {\n    items?: Array<{ name: string }>;\n  };\n}\n\nfunction getFirstItemName(obj: DataWithItems): string | undefined {\n  return obj.data?.items?.[0]?.name;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 5,
+    "alternativeCount": 1,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-regexp-exec",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function extractNumbers(text: string): number | null {\n  const match = /\\d+/.exec(text);\n  return match ? parseInt(match[0], 10) : null;\n}\n\nfunction extractEmail(text: string): string | null {\n  const match = /\\w+@\\w+\\.\\w+/.exec(text);\n  return match ? match[0] : null;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function extractNumbers(text: string): number | null {\n  const match = /\\d+/.exec(text);\n  return match ? parseInt(match[0], 10) : null;\n}\n\nfunction extractEmail(text: string): string | null {\n  const match = /\\w+@\\w+\\.\\w+/.exec(text);\n  return match ? match[0] : null;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function extractNumbers(input: string): number | null {\n    const match = input.match(/\\d+/);\n    if (!match) return null;\n    return parseInt(match[0], 10);\n}\n\nfunction extractEmail(input: string): string | null {\n    const match = input.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/);\n    if (!match) return null;\n    return match[0];\n}\n",
+        "compiles": true,
+        "lintViolations": 2,
+        "lintDetails": "Use the `RegExp#exec()` method instead.; Use the `RegExp#exec()` method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function extractNumbers(input: string): number | null {\n  const match = input.match(/\\d+/);\n  if (!match) {\n    return null;\n  }\n  return parseInt(match[0], 10);\n}\n\nfunction extractEmail(input: string): string | null {\n  const match = input.match(/[\\w.+-]+@[\\w-]+\\.[\\w.]+/);\n  if (!match) {\n    return null;\n  }\n  return match[0];\n}\n",
+        "compiles": true,
+        "lintViolations": 2,
+        "lintDetails": "Use the `RegExp#exec()` method instead.; Use the `RegExp#exec()` method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function extractNumbers(input: string): number | null {\n  const match = input.match(/\\d+/);\n  if (!match) {\n    return null;\n  }\n  return parseInt(match[0], 10);\n}\n\nfunction extractEmail(input: string): string | null {\n  const match = input.match(/[\\w.+-]+@[\\w.-]+\\.\\w+/);\n  if (!match) {\n    return null;\n  }\n  return match[0];\n}\n",
+        "compiles": true,
+        "lintViolations": 2,
+        "lintDetails": "Use the `RegExp#exec()` method instead.; Use the `RegExp#exec()` method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function extractNumbers(input: string): number | null {\n  const match = /\\d+/.exec(input);\n  if (!match) {\n    return null;\n  }\n  return parseInt(match[0], 10);\n}\n\nfunction extractEmail(input: string): string | null {\n  const match = /[^\\s@]+@[^\\s@]+\\.[^\\s@]+/.exec(input);\n  if (!match) {\n    return null;\n  }\n  return match[0];\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 3,
+    "alternativeCount": 3,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-string-starts-ends-with",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function isHttpUrl(url: string): boolean {\n  return url.startsWith('http://') || url.startsWith('https://');\n}\n\nfunction hasFileExtension(filename: string): boolean {\n  return filename.endsWith('.ts') || filename.endsWith('.js');\n}\n\nfunction isComment(line: string): boolean {\n  return line.trim().startsWith('//');\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function isHttpUrl(url: string): boolean {\n  return url.startsWith('http://') || url.startsWith('https://');\n}\n\nfunction hasFileExtension(filename: string): boolean {\n  return filename.endsWith('.ts') || filename.endsWith('.js');\n}\n\nfunction isComment(line: string): boolean {\n  return line.trim().startsWith('//');\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "function isHttpUrl(url: string): boolean {\n    return url.indexOf('http://') === 0 || url.indexOf('https://') === 0;\n}\n\nfunction hasFileExtension(filename: string): boolean {\n    return filename.endsWith('.ts') || filename.endsWith('.js');\n}\n\nfunction isComment(line: string): boolean {\n    return line.trim().indexOf('//') === 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 3,
+        "lintDetails": "Use 'String#startsWith' method instead.; Use 'String#startsWith' method instead.; Use 'String#startsWith' method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function isHttpUrl(url: string): boolean {\n  return url.indexOf('http://') === 0 || url.indexOf('https://') === 0;\n}\n\nfunction hasFileExtension(filename: string): boolean {\n  return filename.slice(-3) === '.ts' || filename.slice(-3) === '.js';\n}\n\nfunction isComment(line: string): boolean {\n  return line.trim().indexOf('//') === 0;\n}\n",
+        "compiles": true,
+        "lintViolations": 5,
+        "lintDetails": "Use 'String#startsWith' method instead.; Use 'String#startsWith' method instead.; Use the 'String#endsWith' method instead.; Use the 'String#endsWith' method instead.; Use 'String#startsWith' method instead.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "function isHttpUrl(url: string): boolean {\n  return url.startsWith(\"http://\") || url.startsWith(\"https://\");\n}\n\nfunction hasFileExtension(filename: string): boolean {\n  return filename.endsWith(\".ts\") || filename.endsWith(\".js\");\n}\n\nfunction isComment(line: string): boolean {\n  return line.trim().startsWith(\"//\");\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "function isHttpUrl(url: string): boolean {\n  return url.startsWith(\"http://\") || url.startsWith(\"https://\");\n}\n\nfunction hasFileExtension(filename: string): boolean {\n  return filename.endsWith(\".ts\") || filename.endsWith(\".js\");\n}\n\nfunction isComment(line: string): boolean {\n  return line.trim().startsWith(\"//\");\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 4,
+    "alternativeCount": 2,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "prefer-find",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function getActiveUser(users: Array<{ id: number; name: string; active: boolean }>): { id: number; name: string; active: boolean } | undefined {\n  return users.find(user => user.active);\n}\n\nfunction getOldestItem(items: Array<{ createdAt: number; label: string }>): { createdAt: number; label: string } | undefined {\n  return items.find(item => {\n    const oldest = items.reduce((min, current) => current.createdAt < min.createdAt ? current : min);\n    return item === oldest;\n  });\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function getActiveUser(users: Array<{ id: number; name: string; active: boolean }>): { id: number; name: string; active: boolean } | undefined {\n  return users.find(u => u.active);\n}\n\nfunction getOldestItem(items: Array<{ createdAt: number; label: string }>): { createdAt: number; label: string } | undefined {\n  return items.find(item =>\n    items.every(other => item.createdAt <= other.createdAt)\n  );\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type User = { id: number; name: string; active: boolean };\ntype TimedItem = { createdAt: number; label: string };\n\nfunction getActiveUser(users: User[]): User | undefined {\n    for (let i = 0; i < users.length; i++) {\n        if (users[i].active) {\n            return users[i];\n        }\n    }\n    return undefined;\n}\n\nfunction getOldestItem(items: TimedItem[]): TimedItem | undefined {\n    if (items.length === 0) return undefined;\n\n    let oldest = items[0];\n    for (let i = 1; i < items.length; i++) {\n        if (items[i].createdAt < oldest.createdAt) {\n            oldest = items[i];\n        }\n    }\n    return oldest;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function getActiveUser(users: Array<{ id: number; name: string; active: boolean }>): { id: number; name: string; active: boolean } | undefined {\n  for (let i = 0; i < users.length; i++) {\n    if (users[i].active) {\n      return users[i];\n    }\n  }\n  return undefined;\n}\n\nfunction getOldestItem(items: Array<{ createdAt: number; label: string }>): { createdAt: number; label: string } | undefined {\n  if (items.length === 0) {\n    return undefined;\n  }\n\n  let oldest = items[0];\n  for (let i = 1; i < items.length; i++) {\n    if (items[i].createdAt < oldest.createdAt) {\n      oldest = items[i];\n    }\n  }\n  return oldest;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "interface UserRecord {\n  id: number;\n  name: string;\n  active: boolean;\n}\n\ninterface TimestampedItem {\n  createdAt: number;\n  label: string;\n}\n\nfunction getActiveUser(users: UserRecord[]): UserRecord | undefined {\n  return users.find((u) => u.active);\n}\n\nfunction getOldestItem(items: TimestampedItem[]): TimestampedItem | undefined {\n  if (items.length === 0) {\n    return undefined;\n  }\n\n  let oldest = items[0];\n  for (const item of items) {\n    if (item.createdAt < oldest.createdAt) {\n      oldest = item;\n    }\n  }\n  return oldest;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface UserEntry {\n  id: number;\n  name: string;\n  active: boolean;\n}\n\nfunction getActiveUser(users: UserEntry[]): UserEntry | undefined {\n  return users.find((user) => user.active);\n}\n\ninterface TimestampedItem {\n  createdAt: number;\n  label: string;\n}\n\nfunction getOldestItem(items: TimestampedItem[]): TimestampedItem | undefined {\n  if (items.length === 0) {\n    return undefined;\n  }\n\n  let oldest = items[0];\n  for (const item of items) {\n    if (item.createdAt < oldest.createdAt) {\n      oldest = item;\n    }\n  }\n  return oldest;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "dot-notation",
+    "kind": "on-off",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function getObjectProperties(obj: { name: string; age: number; email: string }): string {\n  return `${obj.name} is ${obj.age} years old and can be reached at ${obj.email}`;\n}\n\nfunction updateProperties(obj: { name: string; age: number; email: string }): void {\n  obj.name = 'Updated';\n  obj.age = 30;\n  obj.email = 'new@example.com';\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "interface Person {\n  name: string;\n  age: number;\n  email: string;\n}\n\nfunction getObjectProperties(obj: Person): string {\n  return `${obj.name} (${obj.age}) - ${obj.email}`;\n}\n\nfunction updateProperties(obj: Person): void {\n  obj.name = 'Updated Name';\n  obj.age = 25;\n  obj.email = 'new@example.com';\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type Person = { name: string; age: number; email: string };\n\nfunction getObjectProperties(person: Person): string {\n    return `Name: ${person['name']}, Age: ${person['age']}, Email: ${person['email']}`;\n}\n\nfunction updateProperties(person: Person, updates: Partial<Person>): void {\n    if (updates['name'] !== undefined) person['name'] = updates['name'];\n    if (updates['age'] !== undefined) person['age'] = updates['age'];\n    if (updates['email'] !== undefined) person['email'] = updates['email'];\n}\n",
+        "compiles": true,
+        "lintViolations": 12,
+        "lintDetails": "[\"name\"] is better written in dot notation.; [\"age\"] is better written in dot notation.; [\"email\"] is better written in dot notation.; [\"name\"] is better written in dot notation.; [\"name\"] is better written in dot notation.; [\"name\"] is better written in dot notation.; [\"age\"] is better written in dot notation.; [\"age\"] is better written in dot notation.; [\"age\"] is better written in dot notation.; [\"email\"] is better written in dot notation.; [\"email\"] is better written in dot notation.; [\"email\"] is better written in dot notation.",
+        "matchesDefault": "no"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function getObjectProperties(obj: { name: string; age: number; email: string }): string {\n  return `Name: ${obj.name}, Age: ${obj.age}, Email: ${obj.email}`;\n}\n\nfunction updateProperties(obj: { name: string; age: number; email: string }, name: string, age: number, email: string): void {\n  obj.name = name;\n  obj.age = age;\n  obj.email = email;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "interface Person {\n  name: string;\n  age: number;\n  email: string;\n}\n\nfunction getObjectProperties(person: Person): string {\n  return `${person.name} (age ${person.age}) - ${person.email}`;\n}\n\nfunction updateProperties(person: Person, updates: Partial<Person>): Person {\n  if (updates.name !== undefined) {\n    person.name = updates.name;\n  }\n  if (updates.age !== undefined) {\n    person.age = updates.age;\n  }\n  if (updates.email !== undefined) {\n    person.email = updates.email;\n  }\n  return person;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface Person {\n  name: string;\n  age: number;\n  email: string;\n}\n\nfunction getObjectProperties(person: Person): string {\n  return `${person.name} (age ${person.age}) - ${person.email}`;\n}\n\nfunction updateProperties(person: Person, updates: Partial<Person>): Person {\n  if (updates.name !== undefined) {\n    person.name = updates.name;\n  }\n  if (updates.age !== undefined) {\n    person.age = updates.age;\n  }\n  if (updates.email !== undefined) {\n    person.email = updates.email;\n  }\n  return person;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 5,
+    "alternativeCount": 1,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "noUnusedLocals",
+    "kind": "tsconfig",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "function processData(items: Array<{ id: number; value: string; metadata: string }>): Array<{ identifier: number; content: string }> {\n  const totalCount = items.length;\n  const filtered = items.filter(item => item.value.length > 0);\n  const mapped = filtered.map(item => ({\n    identifier: item.id,\n    content: item.value\n  }));\n  return mapped;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "function processData(items: Array<{ id: number; value: string; metadata: string }>): Array<{ identifier: number; content: string }> {\n  const totalCount = items.length;\n  const filtered = items.filter(item => item.value.length > 0);\n  const mapped = filtered.map(item => ({\n    identifier: item.id,\n    content: item.value\n  }));\n\n  if (totalCount > 0) {\n    console.log(`Processed ${totalCount} items`);\n  }\n\n  return mapped;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type InputItem = { id: number; value: string; metadata: string };\ntype OutputItem = { identifier: number; content: string };\n\nfunction processData(items: InputItem[]): OutputItem[] {\n    const total = items.length;\n    const filtered = items.filter(item => item.value !== '');\n    const result = filtered.map(item => ({\n        identifier: item.id,\n        content: item.value,\n    }));\n\n    console.log(`Processed ${filtered.length} of ${total} items`);\n\n    return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "function processData(items: Array<{ id: number; value: string; metadata: string }>): Array<{ identifier: number; content: string }> {\n  const totalCount = items.length;\n  const filtered = items.filter(item => item.value.length > 0);\n  const mapped = filtered.map(item => ({ identifier: item.id, content: item.value }));\n\n  console.log(`Processed ${totalCount} items, kept ${filtered.length}`);\n\n  return mapped;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "interface DataItem {\n  id: number;\n  value: string;\n  metadata: string;\n}\n\ninterface TransformedItem {\n  identifier: number;\n  content: string;\n}\n\nfunction processData(items: DataItem[]): TransformedItem[] {\n  const totalCount = items.length;\n\n  const nonEmpty = items.filter((item) => item.value.length > 0);\n\n  const result = nonEmpty.map((item) => ({\n    identifier: item.id,\n    content: item.value,\n  }));\n\n  return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "interface DataItem {\n  id: number;\n  value: string;\n  metadata: string;\n}\n\ninterface TransformedItem {\n  identifier: number;\n  content: string;\n}\n\nfunction processData(items: DataItem[]): TransformedItem[] {\n  const totalCount = items.length;\n\n  const nonEmpty = items.filter((item) => item.value.length > 0);\n\n  const result = nonEmpty.map((item) => ({\n    identifier: item.id,\n    content: item.value,\n  }));\n\n  return result;\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  },
+  {
+    "rule": "noUnusedParameters",
+    "kind": "tsconfig",
+    "defaultValue": "on",
+    "alternativeValue": "off",
+    "agents": [
+      {
+        "agent": "haiku-1",
+        "model": "haiku",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n  return (eventName: string, data: unknown, _timestamp: number) => {\n    console.log(`Event: ${eventName}`, data);\n  };\n}\n\nfunction createCounter(): EventHandler {\n  const counts: Record<string, number> = {};\n\n  return (eventName: string, _data: unknown, _timestamp: number) => {\n    counts[eventName] = (counts[eventName] ?? 0) + 1;\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "haiku-2",
+        "model": "haiku",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n  return (eventName, data) => {\n    console.log(`[Event: ${eventName}]`, data);\n  };\n}\n\nfunction createCounter(): EventHandler {\n  const counts: Record<string, number> = {};\n\n  return (eventName) => {\n    counts[eventName] = (counts[eventName] ?? 0) + 1;\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-1",
+        "model": "sonnet",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n    return (eventName: string, data: unknown, timestamp: number) => {\n        console.log(`[${timestamp}] ${eventName}:`, data);\n    };\n}\n\nfunction createCounter(): EventHandler {\n    const counts: { [key: string]: number } = {};\n    return (eventName: string, data: unknown, timestamp: number) => {\n        counts[eventName] = (counts[eventName] || 0) + 1;\n        console.log(`Event \"${eventName}\" count:`, counts[eventName]);\n    };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "sonnet-2",
+        "model": "sonnet",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n  return (eventName: string, data: unknown, timestamp: number) => {\n    console.log(`[${timestamp}] ${eventName}:`, data);\n  };\n}\n\nfunction createCounter(): EventHandler {\n  const counts: { [event: string]: number } = {};\n\n  return (eventName: string, data: unknown, timestamp: number) => {\n    counts[eventName] = (counts[eventName] || 0) + 1;\n    console.log(`Event \"${eventName}\" occurred ${counts[eventName]} times`);\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-1",
+        "model": "opus",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n  return (eventName: string, data: unknown, timestamp: number): void => {\n    console.log(`[${eventName}]`, data);\n  };\n}\n\nfunction createCounter(): EventHandler {\n  const counts = new Map<string, number>();\n\n  return (eventName: string, data: unknown, timestamp: number): void => {\n    const current = counts.get(eventName) ?? 0;\n    counts.set(eventName, current + 1);\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "lintDetails": "",
+        "matchesDefault": "yes"
+      },
+      {
+        "agent": "opus-2",
+        "model": "opus",
+        "code": "type EventHandler = (eventName: string, data: unknown, timestamp: number) => void;\n\nfunction createLogger(): EventHandler {\n  return (eventName: string, data: unknown, timestamp: number): void => {\n    console.log(`[${timestamp}] ${eventName}:`, data);\n  };\n}\n\nfunction createCounter(): EventHandler {\n  const counts = new Map<string, number>();\n\n  return (eventName: string, _data: unknown, _timestamp: number): void => {\n    const current = counts.get(eventName) ?? 0;\n    counts.set(eventName, current + 1);\n  };\n}\n",
+        "compiles": true,
+        "lintViolations": 0,
+        "matchesDefault": "yes"
+      }
+    ],
+    "defaultCount": 6,
+    "alternativeCount": 0,
+    "inconclusiveCount": 0,
+    "recommendation": "keep-default"
+  }
+]

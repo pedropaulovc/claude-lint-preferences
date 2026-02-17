@@ -31,6 +31,13 @@ export default tseslint.config(
         },
       ],
       "react-hooks/exhaustive-deps": "error",
+      // Claude style preferences (experiment 2026-02-17):
+      // Claude naturally writes `const x: Map<K,V> = new Map()` (type on left)
+      "@typescript-eslint/consistent-generic-constructors": ["error", "type-annotation"],
+      // Claude naturally writes `{ [key: string]: T }` over `Record<string, T>`
+      "@typescript-eslint/consistent-indexed-object-style": ["error", "index-signature"],
+      // Claude naturally annotates inferrable types: `const x: number = 0`
+      "@typescript-eslint/no-inferrable-types": "off",
     },
   },
   {
